@@ -1,0 +1,154 @@
+#<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire Fan Page with Clock and Light Effect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        nav ul {
+            background-color: #333;
+            overflow: hidden;
+            color: white;
+            padding: 0;
+            text-align: center;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            padding: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .map-code {
+            background-color: #fafafa;
+            border: 1px solid #ddd;
+            padding: 10px;
+            display: inline-block;
+            margin-top: 20px;
+            color: red; /* Code will be displayed in red */
+        }
+        .clock {
+            font-size: 48px; /* Font size for the clock */
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .light {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0); /* Transparent background */
+            z-index: -1; /* Behind other elements */
+            pointer-events: none; /* Allow clicks through */
+            transition: background-color 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Free Fire Fan Page</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <section id="home">
+        <h2>Free Fire Video</h2>
+        <video width="600" controls>
+            <source src="/mnt/data/lv_0_20240427124422.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <h3>Current Time</h3>
+        <div class="clock" id="clock"></div>
+        
+        <!-- Free Fire Craftland Map Codes in Red -->
+        <h3>Free Fire Craftland Map Codes</h3>
+        <div class="map-code">
+            <p>#FREEFIREC0661C8605AFAFD8E9D1D11135F9360C0086</p>
+            <p>#FREEFIRED5194601B9BB50D72B8AB596D25292CE4805</p>
+            <p>#FREEFIREC0661C8605AFAFD8E9D1D11135F9360C0086</p>
+            <p>#FREEFIRE99303831169C189ED5902BC1B2C35EDB0086</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About</h2>
+        <p>This section is about Free Fire and its gameplay.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>You can contact us at email@example.com.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Free Fire Fan Page. All rights reserved.</p>
+    </footer>
+
+    <div class="light" id="light"></div> <!-- Light effect element -->
+
+    <script>
+        // Function to update the clock
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString(); // Get the current time
+            const clockElement = document.getElementById('clock');
+            clockElement.textContent = timeString; // Update the clock element
+        }
+
+        // Function to change the color of the clock
+        function changeClockColor() {
+            const clockElement = document.getElementById('clock');
+            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16); // Generate a random color
+            clockElement.style.color = randomColor; // Change the color of the clock
+        }
+
+        // Function to change the light color
+        function changeLightColor() {
+            const lightElement = document.getElementById('light');
+            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16); // Generate a random color
+            lightElement.style.backgroundColor = randomColor; // Change the background color of the light element
+        }
+
+        // Initial call to set the time
+        updateClock();
+        // Update the clock every second
+        setInterval(updateClock, 1000);
+        // Change the clock color every 2 seconds
+        setInterval(changeClockColor, 2000);
+        // Change the light color every 2 seconds
+        setInterval(changeLightColor, 2000);
+    </script>
+</body>
+</html>
